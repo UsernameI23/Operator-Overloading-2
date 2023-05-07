@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 namespace Assignment9ex2Operatoroverloading
 {
@@ -8,11 +8,57 @@ namespace Assignment9ex2Operatoroverloading
         public double Hours { get; set; }
         public string? Category { get; set; }
 
-        // overloaded operator ++ and operator --
+        // overloaded operator ++ and operator
+        public static Log operator --(Log obj)
+        {
+            --obj.number;
+            Console.WriteLine(obj.number);
+            return obj;
+        }
+
+
+    public static Log operator ++(Log obj)
+    {
+
+        ++obj.number;
+        Console.WriteLine(obj.number);
+        return obj;
+    }
 
         // overloaded operator + and operator -
+        public static Log operator -(Log obj)
+        {
+            -obj.number;
+            Console.WriteLine(obj.number);
+            return obj;
+        }
+
+
+        public static Log operator +(Log obj)
+        {
+
+            +obj.number;
+            Console.WriteLine(obj.number);
+            return obj;
+        }
 
         // overloaded operator > and operator <
+        public static bool operator >(Log left, Log right)
+        {
+            bool larger = false;
+            if (left.number > right.number)
+                larger = true;
+            return larger;
+        }
+
+        public static bool operator <(Log left, Log right)
+        {
+            bool smaller = false;
+            if (left.number < right.number)
+                smaller = true;
+            return smaller;
+        }
+
     }
     internal class Program
     {
